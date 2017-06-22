@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoystickDemo.Plugins", "JoystickDemo.Plugins.csproj", "{37095246-2CF1-2FD1-49D9-B1B4C4200DEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoystickDemo", "JoystickDemo.csproj", "{FFE535F7-3C92-6E4B-9F66-93DD9807C8F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoystickDemo.Editor.Plugins", "JoystickDemo.Editor.Plugins.csproj", "{8C4975C1-97F2-C256-919F-41F303D180CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37095246-2CF1-2FD1-49D9-B1B4C4200DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37095246-2CF1-2FD1-49D9-B1B4C4200DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37095246-2CF1-2FD1-49D9-B1B4C4200DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37095246-2CF1-2FD1-49D9-B1B4C4200DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE535F7-3C92-6E4B-9F66-93DD9807C8F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE535F7-3C92-6E4B-9F66-93DD9807C8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE535F7-3C92-6E4B-9F66-93DD9807C8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE535F7-3C92-6E4B-9F66-93DD9807C8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4975C1-97F2-C256-919F-41F303D180CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4975C1-97F2-C256-919F-41F303D180CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4975C1-97F2-C256-919F-41F303D180CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4975C1-97F2-C256-919F-41F303D180CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
