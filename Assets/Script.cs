@@ -13,7 +13,6 @@ public class Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        //Debug.Log(CrossPlatformInputManager.GetAxis("Accelator"));
         rb2D.AddForce(new Vector2(0, CrossPlatformInputManager.GetAxis("Accelator") * 20));
         rb2D.AddForce(new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical")));
         if(CrossPlatformInputManager.GetAxis("Horizontal") > 0) {
