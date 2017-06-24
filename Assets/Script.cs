@@ -9,6 +9,9 @@ public class Script : MonoBehaviour {
     public Text hpValue;
     float health = 100f;
 
+    public float DamageMultiplier = 4f;
+    public float DamageTolerance = 4f;
+
 	// Use this for initialization
 	void Start () {
         rb2D = this.GetComponent<Rigidbody2D>();
@@ -28,8 +31,8 @@ public class Script : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         Debug.Log(rb2D.velocity.magnitude * rb2D.mass);
-        if(rb2D.velocity.magnitude * rb2D.mass > 4) {
-            health -= Mathf.Ceil(rb2D.velocity.magnitude * rb2D.mass * 6);
+        if(rb2D.velocity.magnitude * rb2D.mass > DamageTolerance) {
+            health -= Mathf.Ceil(rb2D.velocity.magnitude * rb2D.mass * DamageMultiplier);
             hpValue.text = health.ToString();
         }
     }
