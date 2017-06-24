@@ -13,28 +13,37 @@ public class Script : MonoBehaviour {
     public float DamageTolerance = 4f;
 
     private Vector2 lookPos;
+    private float lookTo = -1;
 
 	// Use this for initialization
 	void Start () {
         rb2D = this.GetComponent<Rigidbody2D>();
         hpValue.text = health.ToString();
+        transform.localScale = new Vector3(-1, 1, 1);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        rb2D.AddForce(new Vector2(0, CrossPlatformInputManager.GetAxis("Vertical") * 10));
-        rb2D.AddForce(new Vector2(CrossPlatformInputManager.GetAxis("Horizontal") * 10 , 0));
-        if(CrossPlatformInputManager.GetAxis("Horizontal") > 0) {
-            this.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if(CrossPlatformInputManager.GetAxis("Horizontal") < 0) {
-            this.transform.localScale = new Vector3(1, 1, 1);
-        }
+        rb2D.AddForce(new Vector2(0, CrossPlatformInputManager.GetAxis("Vertical") * 4));
+        rb2D.AddForce(new Vector2(CrossPlatformInputManager.GetAxis("Horizontal") * 4 , 0));
         //Rotation Scripts:
         if(CrossPlatformInputManager.GetAxis("Horizontal") != 0 || CrossPlatformInputManager.GetAxis("Vertical") != 0) {
-            lookPos = new Vector2(transform.position.x + CrossPlatformInputManager.GetAxis("Horizontal"), transform.position.y + CrossPlatformInputManager.GetAxis("Vertical"));
-            Vector2 Pos = new Vector2(transform.position.x, transform.position.y);
-            gameObject.transform.right = Pos - lookPos;
+            if(CrossPlatformInputManager.GetAxis("Horizontal") > 0) {
+                lookTo = 1;
+                this.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if(CrossPlatformInputManager.GetAxis("Horizontal") < 0) {
+                lookTo = -1;
+                this.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else {
+                lookTo = -1;
+            }
+            lookPos = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical"));
+            Debug.Log(Mathf.Atan(lookPos.y / lookPos.x) * Mathf.Rad2Deg);
+            Vector3 lik = new Vector3(-1, 1, 1);
+            rb2D.MoveRotation(Mathf.Atan(lookPos.y / lookPos.x) * Mathf.Rad2Deg * (transform.localScale == lik ? -1 : 1));
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision) {
