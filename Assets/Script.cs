@@ -8,6 +8,7 @@ public class Script : MonoBehaviour {
     Rigidbody2D rb2D;
     public Text hpValue;
     float health = 100f;
+
 	// Use this for initialization
 	void Start () {
         rb2D = this.GetComponent<Rigidbody2D>();
@@ -21,14 +22,16 @@ public class Script : MonoBehaviour {
         if(CrossPlatformInputManager.GetAxis("Horizontal") > 0) {
             this.transform.localScale = new Vector3(-1, 1, 1);
         }
-        else {
+        else if(CrossPlatformInputManager.GetAxis("Horizontal") < 0) {
             this.transform.localScale = new Vector3(1, 1, 1);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         Debug.Log(rb2D.velocity.magnitude * rb2D.mass);
-        health -= Mathf.Ceil(rb2D.velocity.magnitude * rb2D.mass * 2);
-        hpValue.text = health.ToString();
+        if(rb2D.velocity.magnitude * rb2D.mass > 4) {
+            health -= Mathf.Ceil(rb2D.velocity.magnitude * rb2D.mass * 6);
+            hpValue.text = health.ToString();
+        }
     }
     void Die() {
         Debug.Log("I'm Dead!");
