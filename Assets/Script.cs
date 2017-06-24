@@ -13,8 +13,8 @@ public class Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        rb2D.AddForce(new Vector2(0, CrossPlatformInputManager.GetAxis("Accelator") * 20));
-        rb2D.AddForce(new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical")));
+        rb2D.AddForce(new Vector2(0, CrossPlatformInputManager.GetAxis("Accelator") * 4));
+        rb2D.AddForce(new Vector2(CrossPlatformInputManager.GetAxis("Horizontal") * 4 , 0));
         if(CrossPlatformInputManager.GetAxis("Horizontal") > 0) {
             this.transform.localScale = new Vector3(-1, 1, 1);
         }
